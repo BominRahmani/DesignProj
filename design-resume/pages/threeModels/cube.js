@@ -20,7 +20,7 @@ const Scene = () => {
 
 export default function Cube() {
   return (
-    <Canvas>
+    <Canvas className="cubeCanv">
       <directionalLight intensity={0.5} />
       <Scene />
     </Canvas>

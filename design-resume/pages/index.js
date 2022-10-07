@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 import React, { useEffect, useRef } from "react";
 import BackgroundVideo from "./backgroundVid";
 import Cube from "./threeModels/cube";
+import Floor from "./threeModels/floor"
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <title>Bomin Rahmani</title>
     </Head>
     {/* <BackgroundVideo/> */}
+    <Floor/>
     <Cube/>
     </div>
   );
