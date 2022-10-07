@@ -29,7 +29,6 @@ a {
   justify-content: center;
   align-items: center;
   font-family: "Open Sans";
-
 }
 @media (prefers-color-scheme: dark) {
   html {

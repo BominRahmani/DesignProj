@@ -36,4 +36,5 @@ yarn-error.log*
 next-env.d.ts
 
 # video
-/public/animeretro.mp4
+/design-resume/public/JazzBar.mp4
+/design-resume/public/nature.mp4
