@@ -1,21 +1,26 @@
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import React, { useEffect, useRef } from "react";
-import BackgroundVideo from "./backgroundVid";
+import React, { useEffect, useRef, Suspense } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls, maxPolarAngle, minPolarAngle } from "@react-three/drei";
 import Cube from "./threeModels/cube";
-import Floor from "./threeModels/floor"
+import Floor from "./threeModels/floor";
+import Portal from "./threeModels/portal";
 
 export default function Home() {
   return (
-    <div>
-    <Head>
-      <meta name="viewport" content="width=device-width, initial-scale=1"/>
-      <title>Bomin Rahmani</title>
-    </Head>
-    {/* <BackgroundVideo/> */}
-    <Floor/>
-    <Cube/>
+    <div className="overlayDiv">
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Bomin Rahmani</title>
+      </Head>
+      {/* <BackgroundVideo/> */}
+      <Canvas className="mainCanvas">
+      <OrbitControls maxPolarAngle={Math.PI / 2} minPolarAngle={0} />
+        <Floor className="floorCanv" />
+        <Suspense fallback={null}>
+          <Portal />
+        </Suspense>
+      </Canvas>
     </div>
   );
 }

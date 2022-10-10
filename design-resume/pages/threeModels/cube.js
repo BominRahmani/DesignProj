@@ -5,9 +5,9 @@ import { Box } from "@react-three/drei";
 const Scene = () => {
   const scene = useRef();
   useFrame(() => {
-    scene.current.rotation.y += 0.04;
-    scene.current.rotation.x += 0.04;
-    scene.current.rotation.z += 0.04;
+    scene.current.rotation.y += 0.01;
+    scene.current.rotation.x += 0.01;
+    scene.current.rotation.z += 0.01;
   });
   return (
     <group ref={scene}>

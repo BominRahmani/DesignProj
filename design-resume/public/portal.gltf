@@ -1,0 +1,171 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 10003,
+      "max": [
+        10.107075691223145,
+        0.7751259803771973,
+        10.117551803588867
+      ],
+      "min": [
+        -10.106924057006836,
+        -0.7751200199127197,
+        -10.118441581726074
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 120036,
+      "componentType": 5126,
+      "count": 10003,
+      "max": [
+        0.9999990463256836,
+        0.9997768402099609,
+        0.9999990463256836
+      ],
+      "min": [
+        -0.9999990463256836,
+        -0.9997768402099609,
+        -0.9999990463256836
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 10003,
+      "max": [
+        0.0,
+        0.6980392336845398,
+        1.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.6980392336845398,
+        1.0,
+        1.0
+      ],
+      "type": "VEC4"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "𝔼ℕ𝔼𝔸 𝕃𝔼 𝔽𝕆ℕ𝕊 (https://sketchfab.com/enealefons)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/uxrzone-circle-floor-nav-dd06c5ce07564734b2dadbbab0378484",
+      "title": "UXRZONE CIRCLE floor NAV"
+    },
+    "generator": "Sketchfab-12.68.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 240072,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 160048,
+      "byteOffset": 240072,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 400120,
+      "uri": "scene.bin"
+    }
+  ],
+  "materials": [
+    {
+      "alphaMode": "BLEND",
+      "doubleSided": true,
+      "emissiveFactor": [
+        0.0,
+        1.0,
+        1.0
+      ],
+      "name": "Scene_-_Root",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          1.0,
+          1.0,
+          0.7799722136086435
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.6
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Object_0",
+      "primitives": [
+        {
+          "attributes": {
+            "COLOR_0": 2,
+            "NORMAL": 1,
+            "POSITION": 0
+          },
+          "material": 0,
+          "mode": 0
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        0.09919046610593796,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.09919046610593796,
+        -4.4049415717645405e-17,
+        0.0,
+        0.0,
+        4.4049415717645405e-17,
+        -0.09919046610593796,
+        0.0,
+        0.0,
+        -0.0004060864448547362,
+        -0.0004121661186218263,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "Geode"
+    },
+    {
+      "mesh": 0,
+      "name": "Object_2"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}
