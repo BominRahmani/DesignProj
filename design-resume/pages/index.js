@@ -5,6 +5,7 @@ import { OrbitControls, maxPolarAngle, minPolarAngle } from "@react-three/drei";
 import Cube from "./threeModels/cube";
 import Floor from "./threeModels/floor";
 import Portal from "./threeModels/portal";
+import TexturePlane from "./threeModels/texturePlane";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <Suspense fallback={null}>
           <Portal />
         </Suspense>
+        <TexturePlane />
       </Canvas>
     </div>
   );

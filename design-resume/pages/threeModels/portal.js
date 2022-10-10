@@ -1,17 +1,7 @@
-import React, { useRef, useState } from "react";
-import * as THREE from 'three';
+import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export default function Portal(props) {
-    const [video] = useState(() => {
-        const vid = document.createElement('video');
-        vid.src = './nature.mp4';
-        vid.crossOrigin = "Anonymous"
-        vid.loop = true;
-        vid.muted = true;
-        return vid;
-    });
-
   const group = useRef();
   const { nodes, materials } = useGLTF("portal.gltf");
   return (
@@ -21,7 +11,6 @@ export default function Portal(props) {
           geometry={nodes.Object_2.geometry}
           material={materials["Scene_-_Root"]}
         />
-        
       </group>
     </group>
   );

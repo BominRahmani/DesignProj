@@ -1,24 +1,30 @@
-import React, { useRef, useState } from "react";
+import React, { Suspense } from "react";
+import { useVideoTexture, useTexture } from "@react-three/drei";
 import * as THREE from "three";
-import { useGLTF } from "@react-three/drei";
+
+function VideoMaterial({ url }) {
+  const texture = useVideoTexture(url);
+  return (
+    <meshBasicMaterial
+      map={texture}
+      toneMapped={false}
+      side={THREE.DoubleSide}
+    />
+  );
+}
+
+function FallbackMaterial({ url }) {
+  const texture = useTexture(url);
+  return <meshBasicMaterial map={texture} toneMapped={false} />;
+}
 
 export default function TexturePlane() {
-  const [video] = useState(() => {
-    const vid = document.createElement("video");
-    vid.src = "nature.mp4";
-    vid.crossOrigin = "Anonymous";
-    vid.loop = true;
-    vid.muted = true;
-    return vid;
-  });
-
   return (
-    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
-      <circleGeometry args={[8.7, 60]} />
-      <meshStandardMaterial emissive={"white"} side={THREE.DoubleSide}>
-        <videoTexture attach="map" args={[video]} />
-        <videoTexture atach="emissiveMap" args={[video]} />
-      </meshStandardMaterial>
+    <mesh rotation={[0, 0, 0]} position={[0, 0, 0]} scale={0.17}>
+      <circleGeometry args={[8.7, 30]} />
+      <Suspense fallback={<FallbackMaterial url="synthBack.jpeg" />}>
+        <VideoMaterial url="nature.mp4" />
+      </Suspense>
     </mesh>
   );
 }
