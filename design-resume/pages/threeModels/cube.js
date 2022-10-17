@@ -13,7 +13,7 @@ const Scene = () => {
     <group ref={scene}>
       <Box>
         <meshLambertMaterial attach="material" color="white" />
-      </Box>
+      </Box>  
     </group>
   );
 };

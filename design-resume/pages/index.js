@@ -1,13 +1,12 @@
 import Head from "next/head";
-import React, { useEffect, useRef, Suspense } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import React, { Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls, maxPolarAngle, minPolarAngle } from "@react-three/drei";
-import Cube from "./threeModels/cube";
-import Floor from "./threeModels/floor";
 import Portal from "./threeModels/portal";
 import TexturePlane from "./threeModels/texturePlane";
-
-export default function Home() {
+import Camera from "./camera";
+import { Bloom } from "@react-three/postprocessing";
+export default function Home(props) {
   return (
     <div className="overlayDiv">
       <Head>
@@ -16,12 +15,12 @@ export default function Home() {
       </Head>
       {/* <BackgroundVideo/> */}
       <Canvas className="mainCanvas">
-      <OrbitControls maxPolarAngle={Math.PI / 2} minPolarAngle={0} />
-        <Floor className="floorCanv" />
-        <Suspense fallback={null}>
+        <OrbitControls maxPolarAngle={Math.PI / 2} minPolarAngle={0} maxDistance={1300} />
+        <spotLight intensity={1.2} angle={Math.PI} distance={0} delay={0.1} /> 
+        <Camera position={[-500, -700, 900]} />
+        <Suspense fallback={"synthBack.jpeg"}>
           <Portal />
         </Suspense>
-        <TexturePlane />
       </Canvas>
     </div>
   );
