@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from 'react';
+import React, { useRef, useEffect } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 export default function Camera(props) {
   const ref = useRef();
@@ -6,5 +6,4 @@ export default function Camera(props) {
   useEffect(() => void set({ camera: ref.current }), []);
   useFrame(() => ref.current.updateMatrixWorld());
   return <perspectiveCamera ref={ref} {...props} />;
-  }
-  
+}
