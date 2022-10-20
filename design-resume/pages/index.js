@@ -1,11 +1,10 @@
 import Head from "next/head";
-import React, { Suspense, useState } from "react";
+import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Portal from "./threeModels/portal";
 import Camera from "./camera";
-import Navigation from "./navigation"
-
+import Navigation from "./navigation";
 
 export default function Home(props) {
   return (

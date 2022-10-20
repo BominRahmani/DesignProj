@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import AboutMe from "./modal/aboutMe"
 export default function Navigation() {
   const [toggle, setToggle] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const close = () => setModalOpen(false);
+  const open = () => setModalOpen(true);
   const handleClick = () => {
     setToggle(!toggle);
     console.log(toggle);
@@ -10,7 +13,7 @@ export default function Navigation() {
   return (
     <div>
       <AnimatePresence>
-        {toggle && (
+        {toggle && !modalOpen && (
           <motion.nav
             key="ahsdfajksdhfakjsdfhakjdshf"
             initial={{ scale: 0}}
@@ -20,7 +23,7 @@ export default function Navigation() {
           >
             <ul id="primary-navigation" className="primary-navigation flex">
               <li className="active">
-                <a>
+                <a onClick={() => modalOpen ? close() : open()}>
                   <span aria-hidden="true">01</span> About Me
                 </a>
               </li>
@@ -39,6 +42,9 @@ export default function Navigation() {
         )}
       </AnimatePresence>
       <button className="mobile-nav-toggle" onClick={handleClick}></button>
+      <AnimatePresence initial={false} exitBeforeEnter={true} onExitComplete={() => null}>
+      {modalOpen && <AboutMe  modalOpen={modalOpen} handleClose={close}/>}
+      </AnimatePresence>
     </div>
   );
 }
