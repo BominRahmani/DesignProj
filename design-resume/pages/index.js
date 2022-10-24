@@ -1,9 +1,8 @@
 import Head from "next/head";
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import Portal from "./threeModels/portal";
-import Camera from "./camera";
 import Navigation from "./navigation";
 
 export default function Home(props) {
@@ -21,9 +20,10 @@ export default function Home(props) {
           maxDistance={1300}
         />
         <spotLight intensity={1.2} angle={Math.PI} decay={1} />
-        <Camera position={[-500, -700, 900]} />
+        <PerspectiveCamera makeDefault  position={[-500, -700, 900]}/>
+        
         <Suspense fallback={null}>
-          <Portal />
+          <Portal className="portalCanv"/>
         </Suspense>
       </Canvas>
       <Navigation />
