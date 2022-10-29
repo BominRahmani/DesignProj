@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { Suspense } from 'react'
 import Backdrop from "../modalBackDrop";
-import WordCloud from "../wordCloud";
+import Link from 'next/link'
+import Image from "next/image"
 
 const dropIn = {
   hidden: {
@@ -28,16 +28,14 @@ const dropIn = {
 };
 
 const ModalText = ({ text }) => (
-  <div className="projects-text" onClick={(e) => e.stopPropagation()}>
+  <div className="modal-text" onClick={(e) => e.stopPropagation()}>
     <h3>{text}</h3>
-    <h1> Technology </h1>
-    <Suspense fallback={null}>
-      <WordCloud className="word-cloud" />
-    </Suspense>
+    <h1>Projects</h1>
+    <Link href="/projectsScene">Temporary Link</Link>
   </div>
 );
 
-const Projects = ({ handleClose, text }) => {
+const Technology = ({ handleClose, text }) => {
   return (
     <Backdrop onClick={handleClose}>
       <motion.div
@@ -53,4 +51,4 @@ const Projects = ({ handleClose, text }) => {
   );
 };
 
-export default Projects;
+export default Technology;

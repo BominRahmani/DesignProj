@@ -2,23 +2,34 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AboutMe from "./modal/aboutMe";
 import Projects from "./modal/projects";
+import Technology from "./modal/technology";
+
 export default function Navigation() {
   const [toggle, setToggle] = useState(false);
   const [modalOpen, setAboutModalOpen] = useState(false);
+  const [techModalOpen, setTechModalOpen] = useState(false);
   const [projectModalOpen, setProjectModalOpen] = useState(false);
   const aboutClose = () => setAboutModalOpen(false);
   const aboutOpen = () => setAboutModalOpen(true);
   const projectClose = () => setProjectModalOpen(false);
   const projectOpen = () => setProjectModalOpen(true);
+  const techClose = () => setTechModalOpen(false);
+  const techOpen = () => setTechModalOpen(true);
+  const [modalNav, setModalNav] = useState({
+    about: false,
+    tech: false,
+    projects: false,
+  });
   const handleClick = () => {
     setToggle(!toggle);
-    close();
-    console.log(toggle);
+    aboutClose();
+    projectClose();
+    techClose();
   };
   return (
     <div>
       <AnimatePresence>
-        {toggle && !modalOpen && (
+        {toggle && !modalOpen && !techModalOpen && !projectModalOpen && (
           <motion.nav
             key="ahsdfajksdhfakjsdfhakjdshf"
             initial={{ scale: 0 }}
@@ -34,17 +45,16 @@ export default function Navigation() {
               </li>
               <li>
                 <a
-                  a
                   onClick={() =>
                     projectModalOpen ? projectClose() : projectOpen()
                   }
                 >
-                  <span aria-hidden="true">02</span> Projects
+                  <span aria-hidden="true">02</span> Technology
                 </a>
               </li>
               <li>
-                <a>
-                  <span aria-hidden="true">03</span> Technology
+                <a onClick={() => (techModalOpen ? techClose() : techOpen())}>
+                  <span aria-hidden="true">03</span> Projects
                 </a>
               </li>
             </ul>
@@ -62,6 +72,9 @@ export default function Navigation() {
         )}
         {projectModalOpen && (
           <Projects modalOpen={projectModalOpen} handleClose={projectClose} />
+        )}
+        {techModalOpen && (
+          <Technology modalOpen={techModalOpen} handleClose={techClose} />
         )}
       </AnimatePresence>
     </div>

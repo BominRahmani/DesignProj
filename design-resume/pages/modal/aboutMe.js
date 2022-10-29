@@ -9,7 +9,7 @@ const dropIn = {
   },
   visible: {
     y: "0",
-    opacity: "1",
+    opacity: 1,
     transition: {
       duration: 1,
       type: "spring",
@@ -30,15 +30,15 @@ const ModalText = ({ text }) => (
   <div className="modal-text" onClick={(e) => e.stopPropagation()}>
     <h3>{text}</h3>
     <div className="left-side-about-me">
-      <Image className="profile-picture" src="profile_picture.jpeg" alt="synthBack.jpeg"/>
+      <Image className="profile-picture" src="/profile_picture.jpeg" alt="/synthBack.jpeg" width="300" height="300"/>
       <h1>Bomin Rahmani</h1>
       <p>Im a software developer that works with almost every facet of the industry, whether that be mobile, web, or research development!</p>
       <div className="icon-tray">
         <a href="https://github.com/BominRahmani" target="_blank" rel="noopener noreferrer">
-          <Image className="github-icon" src="github-icon.png" alt="synthBack.jpeg"></Image>
+          <Image className="github-icon" src="/github-icon.png" alt="/synthBack.jpeg" width="50%" height="50%"></Image>
         </a>
         <a href="https://www.linkedin.com/in/bominrahmani/" target="_blank" rel="noopener noreferrer">
-          <Image className="linkedin-icon" src="linkedin-icon.png" alt="synthBack.jpeg"></Image>
+          <Image className="linkedin-icon" src="/linkedin-icon.png" alt="/synthBack.jpeg" width="50%" height="50%"></Image>
         </a>
       </div>
       
