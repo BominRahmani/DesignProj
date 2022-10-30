@@ -20,27 +20,27 @@ function ImagePlane() {
   ]);
   return (
     <group>
-      <mesh rotation={[0, 5, 0]} position={[4, 0, 1]} scale={0.17}>
+      <mesh rotation={[0, 5.8, 0]} position={[4, 0, 1]} scale={0.17}>
         <planeBufferGeometry attach="geometry" args={[10, 20]} />
         <meshBasicMaterial attach="material" map={t5} side={THREE.DoubleSide} />
       </mesh>
-      <mesh rotation={[0, 5, 0]} position={[6, 0, 4]} scale={0.17}>
+      <mesh rotation={[0, 4.8, 0]} position={[5, 0, 4]} scale={0.17}>
         <planeBufferGeometry attach="geometry" args={[10, 20]} />
         <meshBasicMaterial attach="material" map={t2} side={THREE.DoubleSide} />
       </mesh>
-      <mesh rotation={[0, 5, 0]} position={[10, 0, 5]} scale={0.17}>
+      <mesh rotation={[0, 3, 0]} position={[0, 0, 9]} scale={0.17}>
         <planeBufferGeometry attach="geometry" args={[10, 20]} />
         <meshBasicMaterial attach="material" map={t3} side={THREE.DoubleSide} />
       </mesh>
-      <mesh rotation={[0, 5, 0]} position={[10, 0, 6]} scale={0.17}>
+      <mesh rotation={[0, 4, 0]} position={[4, 0, 8]} scale={0.17}>
         <planeBufferGeometry attach="geometry" args={[10, 20]} />
         <meshBasicMaterial attach="material" map={t4} side={THREE.DoubleSide} />
       </mesh>
-      <mesh rotation={[0, -5, 0]} position={[-4, 0, 3]} scale={0.17}>
+      <mesh rotation={[0, -5.5, 0]} position={[-4, 0, 2]} scale={0.17}>
         <planeBufferGeometry attach="geometry" args={[10, 20]} />
         <meshBasicMaterial attach="material" map={t6} side={THREE.DoubleSide} />
       </mesh>
-      <mesh rotation={[0, -5, 0]} position={[-4, 0, 6]} scale={0.17}>
+      <mesh rotation={[0, -4.4, 0]} position={[-4, 0, 6]} scale={0.17}>
         <planeBufferGeometry attach="geometry" args={[10, 20]} />
         <meshBasicMaterial attach="material" map={t1} side={THREE.DoubleSide} />
       </mesh>
