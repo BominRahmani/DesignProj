@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="three-backgrounds">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/three-backgrounds/gallery.zip!/" />
+      <root url="jar://$PROJECT_DIR$/three-backgrounds/portalModel.zip!/" />
+      <root url="jar://$PROJECT_DIR$/three-backgrounds/neon_stage.zip!/" />
+      <root url="jar://$PROJECT_DIR$/three-backgrounds/tardis.zip!/" />
+      <root url="jar://$PROJECT_DIR$/three-backgrounds/space2.zip!/" />
+      <root url="jar://$PROJECT_DIR$/three-backgrounds/clothsim.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -21,9 +21,9 @@ function FallbackMaterial({ url }) {
 export default function TexturePlane() {
   return (
     <mesh rotation={[0, 0, 0]} position={[0, 0, 0]} scale={0.17}>
-      <planeGeometry args={[20, 15]} />
+      <planeGeometry args={[10, 20]} />
       <Suspense fallback={<FallbackMaterial url="synthBack.jpeg" />}>
-        <VideoMaterial url="nature.mp4" />
+        <VideoMaterial url="/google/vid7.mp4" />
       </Suspense>
     </mesh>
   );
