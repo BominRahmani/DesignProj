@@ -31,7 +31,8 @@ const ModalText = ({ text }) => (
   <div className="modal-text" onClick={(e) => e.stopPropagation()}>
     <h3>{text}</h3>
     <h1>Projects</h1>
-    <Link href="/projectsScene">Temporary Link</Link>
+    <p>The Google project was made to show off the various features of the Pixel 6 and Pixel 6 Pro</p>
+    <Link href="/Google">Temporary Link</Link>
   </div>
 );
 

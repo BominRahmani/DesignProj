@@ -3,11 +3,7 @@ import VideoPlane from "./threeModels/texturePlane";
 import React from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import {
-  OrbitControls,
-  PerspectiveCamera,
-  OrthographicCamera,
-} from "@react-three/drei";
+import { Bounds, OrbitControls, useBounds } from "@react-three/drei";
 
 function ImagePlane() {
   const [t1, t2, t3, t4, t5, t6] = useLoader(THREE.TextureLoader, [
@@ -47,13 +43,35 @@ function ImagePlane() {
     </group>
   );
 }
-export default function ProjectScene() {
+function SelectToZoom({ children }) {
+  const api = useBounds();
+  return (
+    <group
+      onClick={(e) => (
+        e.stopPropagation(), e.delta <= 2 && api.refresh(e.object).clip().fit()
+      )}
+      onPointerMissed={(e) => e.button === 0 && api.refresh()}
+    >
+      {children}
+    </group>
+  );
+}
+export default function Google() {
   return (
     <Canvas className="project-scene">
-      <OrbitControls maxPolarAngle={Math.PI / 2} minPolarAngle={0} target={[0,0,4]} />
-        <ImagePlane />
-        <VideoPlane />
-        <Floor />
+      <OrbitControls
+        makeDefault
+        maxPolarAngle={Math.PI / 2}
+        minPolarAngle={0}
+        target={[0, 0, 4]}
+      />
+      <Bounds clip observe>
+        <SelectToZoom>
+          <ImagePlane />
+          <VideoPlane />
+      
+        </SelectToZoom>
+      </Bounds>
     </Canvas>
   );
 }
