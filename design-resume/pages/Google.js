@@ -10,7 +10,7 @@ export default function Google() {
   const images = [
     // Front<mesh position={[1.75, 0.85, 0.25]} rotation={[0, -Math.PI / 2.5, 0]} scale={0.16}>
     { position: [1.75, 0, 0.25], rotation: [0, -Math.PI / 2.5, 0], url: "google/1.webp" },
-    { position: [0, 0, 1.46], rotation: [0, 0, 0], url: pexel(1103970), Scene: lazy(() => import('./threeModels/texturePlane')) },
+    { position: [0, 0, 1.46], rotation: [0, 0, 0], url: pexel(1103970)},
     // Back
     { position: [-0.8, 0, -0.6], rotation: [0, 0, 0], url: "google/2.webp" },
     { position: [0.8, 0, -0.6], rotation: [0, 0, 0], url: "google/3.webp" },
