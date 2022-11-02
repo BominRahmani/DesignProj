@@ -17,7 +17,7 @@ export default function Gallery({ images }) {
       className="gallery-canvas"
       gl={{ alpha: false }}
       dpr={[1, 1.5]}
-      camera={{ fov: 70, position: [0, 0, 5] }}
+      camera={{ fov: 70, position: [0.3, 0, 5] }}
     >
       <color attach="background" args={["#191920"]} />
       <fog attach="fog" args={["#191920", 0, 15]} />
@@ -124,10 +124,10 @@ function SelectToZoom({ children, target }) {
     <group
       onClick={(e) => {
         e.stopPropagation();
-        e.delta <= 2 && api.refresh(e.object).fit();
+        e.delta <= 2 && api.refresh(e.object).clip().fit();
       }}
       onPointerMissed={(e) => {
-        e.button === 0 && api.to({ position: [0, 0, 5], target: [0, 0, 0] });
+        e.button === 0 && api.to({ position: [0.3, 0, 5], target: [0, 0, 0] });
       }}
     >
       {children}
