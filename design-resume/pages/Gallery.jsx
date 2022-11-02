@@ -46,6 +46,9 @@ export default function Gallery({ images }) {
     </Canvas>
   );
 }
+function handleClick() {
+  console.log("hello");
+}
 
 function Frames({
   images,
@@ -56,6 +59,7 @@ function Frames({
   const clicked = useRef();
   const [, params] = useRoute("/item/:id");
   const [, setLocation] = useLocation();
+  //console.log(images)
   useEffect(() => {
     clicked.current = ref.current.getObjectByName(params?.id);
     if (clicked.current) {
@@ -67,7 +71,7 @@ function Frames({
       q.identity();
     }
   });
-  useFrame((state, dt) => {
+  useFrame((state) => {
     state.camera.position.lerp(p, 0.025);
     state.camera.quaternion.slerp(q, 0.025);
   });
@@ -82,10 +86,11 @@ function Frames({
       )}
       onPointerMissed={() => setLocation("/")}
     >
-      {images.map(
-        (props) => <Frame key={props.url} {...props} /> /* prettier-ignore */
-      )}
-      <TexturePlane />
+      {images.map(({ Scene, ...props }) => (
+        <Frame key={props.url} {...props}>
+          <TexturePlane />
+        </Frame>
+      ))}
     </group>
   );
 }
@@ -96,22 +101,30 @@ function Frame({ url, c = new THREE.Color(), ...props }) {
   const image = useRef();
   const frame = useRef();
   const name = getUuid(url);
+  if (url.includes(".mp4")) {
+    console.log("hahahaha", image);
+  }
   const { width } = useThree((state) => state.viewport);
   const w = width < 10 ? 1.5 / 3 : 1 / 3;
   useCursor(hovered);
-  useFrame((state) => {
-    image.current.scale.x = THREE.MathUtils.lerp(
-      image.current.scale.x,
-      0.85 * (hovered ? 0.85 : 1),
-      0.1
-    );
-    image.current.scale.y = THREE.MathUtils.lerp(
-      image.current.scale.y,
-      0.9 * (hovered ? 0.905 : 1),
-      0.1
-    );
-    frame.current.material.color.lerp(c.set(hovered ? "orange" : "white"), 0.1);
-  });
+  if (!url.includes("pexel")) {
+    useFrame((state) => {
+      image.current.scale.x = THREE.MathUtils.lerp(
+        image.current.scale.x,
+        0.85 * (hovered ? 0.85 : 1),
+        0.1
+      );
+      image.current.scale.y = THREE.MathUtils.lerp(
+        image.current.scale.y,
+        0.9 * (hovered ? 0.905 : 1),
+        0.1
+      );
+      frame.current.material.color.lerp(
+        c.set(hovered ? "orange" : "white"),
+        0.1
+      );
+    });
+  }
   return (
     <group {...props}>
       <mesh
@@ -137,14 +150,17 @@ function Frame({ url, c = new THREE.Color(), ...props }) {
           <boxGeometry />
           <meshBasicMaterial toneMapped={false} fog={false} />
         </mesh>
-        <Image
-          raycast={() => null}
-          ref={image}
-          position={[0, 0, 0.7]}
-          scale={[2, 5, 1]}
-          url={url}
-        />
-        
+        {url.includes("pexel") ? (
+          <TexturePlane />
+        ) : (
+          <Image
+            raycast={() => null}
+            ref={image}
+            position={[0, 0, 0.7]}
+            scale={[2, 5, 1]}
+            url={url}
+          />
+        )}
       </mesh>
     </group>
   );

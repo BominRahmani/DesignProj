@@ -8,10 +8,11 @@ function VideoMaterial({ url }) {
     <meshBasicMaterial
       map={texture}
       toneMapped={false}
-      side={THREE.DoubleSide}
-      raycast={() => null}
     />
   );
+}
+function handleClick(){
+  console.log("haha");
 }
 
 function FallbackMaterial({ url }) {
@@ -21,8 +22,8 @@ function FallbackMaterial({ url }) {
 
 export default function TexturePlane() {
   return (
-    <mesh position={[0, 0.8, 1.5]} rotation={[0, 0, 0]} scale={0.16}>
-      <planeGeometry args={[6, 10]} />
+    <mesh position={[0, 0, 0.7]} rotation={[0, 0, 0]} scale={0.2}>
+      <planeGeometry args={[10, 20]}/>
       <Suspense fallback={<FallbackMaterial url="synthBack.jpeg" />}>
         <VideoMaterial url="/google/vid7.mp4" />
       </Suspense>
