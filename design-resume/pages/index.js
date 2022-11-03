@@ -20,10 +20,10 @@ export default function Home(props) {
           maxDistance={1300}
         />
         <spotLight intensity={1.2} angle={Math.PI} decay={1} />
-        <PerspectiveCamera makeDefault  position={[-500, -700, 900]}/>
-        
+        <PerspectiveCamera makeDefault position={[-500, -700, 900]} />
+
         <Suspense fallback={null}>
-          <Portal className="portalCanv"/>
+          <Portal className="portalCanv" />
         </Suspense>
       </Canvas>
       <Navigation />

@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { useEffect, useRef, useState } from "react";
+import { useRef, Suspense } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Bounds, useBounds } from "./api/Bounds";
 import {
@@ -33,7 +33,9 @@ export default function Gallery({ images }) {
       <group position={[0, -0.5, 0]}>
         <Bounds margin={1.3} damping={4}>
           <SelectToZoom>
-            <Frames images={images} />
+            <Suspense fallback={null}>
+              <Frames images={images} />
+            </Suspense>
           </SelectToZoom>
         </Bounds>
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
@@ -72,19 +74,19 @@ function Frame({ url, ...props }) {
   const { width } = useThree((state) => state.viewport);
   const w = width < 10 ? 1.5 / 3 : 1 / 3;
   if (!url.includes(".mp4")) {
-  useFrame((state) => {
-    image.current.scale.x = THREE.MathUtils.lerp(
-      image.current.scale.x,
-      0.85,
-      0.1
-    );
-    image.current.scale.y = THREE.MathUtils.lerp(
-      image.current.scale.y,
-      0.9,
-      0.1
-    );
-  });
-}
+    useFrame((state) => {
+      image.current.scale.x = THREE.MathUtils.lerp(
+        image.current.scale.x,
+        0.85,
+        0.1
+      );
+      image.current.scale.y = THREE.MathUtils.lerp(
+        image.current.scale.y,
+        0.9,
+        0.1
+      );
+    });
+  }
   return (
     <group {...props}>
       <mesh
@@ -112,11 +114,11 @@ function Frame({ url, ...props }) {
           <TexturePlane />
         ) : (
           <Image
-          raycast={() => null}
-          ref={image}
-          position={[0, 0, 0.7]}
-          scale={[2.4, 5, 1]}
-          url={url}
+            raycast={() => null}
+            ref={image}
+            position={[0, 0, 0.7]}
+            scale={[2.4, 5, 1]}
+            url={url}
           />
         )}
       </mesh>
