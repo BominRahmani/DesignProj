@@ -8,6 +8,7 @@ import {
   Environment,
   OrbitControls,
 } from "@react-three/drei";
+import TexturePlane from "./threeModels/texturePlane";
 
 const GOLDENRATIO = 1.61803398875;
 
@@ -70,6 +71,7 @@ function Frame({ url, ...props }) {
   const frame = useRef();
   const { width } = useThree((state) => state.viewport);
   const w = width < 10 ? 1.5 / 3 : 1 / 3;
+  if (!url.includes(".mp4")) {
   useFrame((state) => {
     image.current.scale.x = THREE.MathUtils.lerp(
       image.current.scale.x,
@@ -82,6 +84,7 @@ function Frame({ url, ...props }) {
       0.1
     );
   });
+}
   return (
     <group {...props}>
       <mesh
@@ -105,13 +108,17 @@ function Frame({ url, ...props }) {
           <boxGeometry />
           <meshBasicMaterial toneMapped={false} fog={false} />
         </mesh>
-        <Image
+        {url.includes(".mp4") ? (
+          <TexturePlane />
+        ) : (
+          <Image
           raycast={() => null}
           ref={image}
           position={[0, 0, 0.7]}
           scale={[2.4, 5, 1]}
           url={url}
-        />
+          />
+        )}
       </mesh>
     </group>
   );
