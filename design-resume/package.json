@@ -13,7 +13,8 @@
     "@react-three/fiber": "^8.8.9",
     "@react-three/postprocessing": "^2.6.2",
     "framer-motion": "^7.6.1",
-    "next": "12.3.1",
+    "lottie-react": "^2.3.1",
+    "next": "^13.0.6",
     "random-words": "^1.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -22,6 +23,7 @@
     "wouter": "^2.8.0-alpha.2"
   },
   "devDependencies": {
+    "@types/three": "^0.146.0",
     "eslint": "8.24.0",
     "eslint-config-next": "12.3.1"
   }

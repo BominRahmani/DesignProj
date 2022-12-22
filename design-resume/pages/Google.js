@@ -1,7 +1,5 @@
-import Floor from "./threeModels/floor";
-import VideoPlane from "./threeModels/texturePlane";
 import React from "react";
-import Gallery from "./Gallery";
+import Gallery from "../components/Gallery";
 
 export default function Google() {
   const images = [
@@ -13,13 +11,13 @@ export default function Google() {
     },
     { position: [2.75, 0, 0.6], rotation: [0, -1, 0], url: "google/2.webp" },
     // Back
-    { position: [-0.8, 0, -0.6], rotation: [0, 0, 0], url: "google/vid7.mp4" },
+    { position: [-0.8, 0, 2], rotation: [0, 0, 0], url: "google/vid7.mp4" },
     { position: [0.5, 0, -0.7], rotation: [0, -0.2, 0], url: "google/3.webp" },
     // Left
     {
       position: [-1.75, 0, 0.3],
       rotation: [0, Math.PI / 5, 0],
-      url: "google/4.webp",
+      url: "google/4imp.webp",
     },
     {
       position: [-2.1, 0, 1.9],
