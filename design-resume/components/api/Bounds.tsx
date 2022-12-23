@@ -185,7 +185,7 @@ export function Bounds({ children, damping = 6, fit, clip, margin = 1.2, eps = 0
         return this
       },
     }
-  }, [box, camera, controls, margin, damping, invalidate])
+  }, [box, camera, controls, margin, damping, current, goal, invalidate])
 
   React.useLayoutEffect(() => {
     api.refresh()
@@ -198,7 +198,7 @@ export function Bounds({ children, damping = 6, fit, clip, margin = 1.2, eps = 0
       controls.addEventListener('start', callback)
       return () => controls.removeEventListener('start', callback)
     }
-  }, [clip, fit, controls])
+  }, [clip, fit, controls, api, current])
 
   useFrame((state, delta) => {
     if (current.animating) {

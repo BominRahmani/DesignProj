@@ -11,7 +11,7 @@ function VideoMaterial({ url }) {
 export default function KryptPlane() {
   return (
     <group>
-      <mesh position={[0, 0, 1]} rotation={[0, 0, 0]} scale={[5,3]}>
+      <mesh position={[0, 0.04, 1]} rotation={[0, 0, 0]} scale={[3,1]}>
         <planeGeometry />
         <Suspense fallback={null}>
           <VideoMaterial url="/socialMedia/soc.mp4" />

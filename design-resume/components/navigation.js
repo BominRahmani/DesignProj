@@ -60,7 +60,7 @@ export default function Navigation() {
   };
 
   const mappedItemClick = (item) => {
-    switch(item){
+    switch (item) {
       case "About Me":
         modalOpen ? aboutClose() : aboutOpen();
         break;
@@ -71,7 +71,7 @@ export default function Navigation() {
         techModalOpen ? techClose() : techOpen();
         break;
       case "Resume":
-        console.log("remember to add this in");
+        window.open("/Resume.pdf", "_blank");
         break;
     }
   };
@@ -126,7 +126,6 @@ export default function Navigation() {
             </motion.ul>
           </motion.div>
         )}
-
       </AnimatePresence>
       <label
         className="mobile-nav-toggle"

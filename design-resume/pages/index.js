@@ -11,7 +11,7 @@ export default function Home(props) {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
       setDist(-80);
     }
-  })
+  }, [])
   return (
     <div className="overlayDiv">
       <Head>

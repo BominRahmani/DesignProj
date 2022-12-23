@@ -45,7 +45,7 @@ const ModalText = ({ text }) => {
       <h1>Bomin Rahmani</h1>
       <div className="about-me-middle">
         <p>
-          I'm a software developer that works with almost every facet of the
+          I&apos;m a software developer that works with almost every facet of the
           industry, whether that be mobile, web, or research development!
         </p>
         <div className="icon-tray">
