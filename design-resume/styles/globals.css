@@ -14,7 +14,9 @@ a {
 p {
   color: white;
 }
-
+h1 {
+  color: white;
+}
 .primary-header {
   align-items: center;
   justify-content: space-between;
