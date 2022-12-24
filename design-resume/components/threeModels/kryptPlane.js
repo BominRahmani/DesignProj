@@ -1,17 +1,15 @@
 import React, { Suspense } from "react";
-import { useVideoTexture, useTexture } from "@react-three/drei";
+import { useVideoTexture } from "@react-three/drei";
 
 function VideoMaterial({ url }) {
   const texture = useVideoTexture(url);
-  return (
-    <meshBasicMaterial map={texture} toneMapped={false} color={[1.2, 1.2, 1.2]} />
-  );
+  return <meshBasicMaterial map={texture} toneMapped={false} />;
 }
 
 export default function KryptPlane() {
   return (
     <group>
-      <mesh position={[0, 0.04, 1]} rotation={[0, 0, 0]} scale={[3,1]}>
+      <mesh position={[0, 0.04, 1]} rotation={[0, 0, 0]}>
         <planeGeometry />
         <Suspense fallback={null}>
           <VideoMaterial url="/socialMedia/soc.mp4" />

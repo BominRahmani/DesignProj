@@ -1,10 +1,8 @@
 import React, { Suspense } from "react";
-import { useVideoTexture, useTexture } from "@react-three/drei";
+import { useVideoTexture } from "@react-three/drei";
 function VideoMaterial({ url }) {
   const texture = useVideoTexture(url);
-  return (
-    <meshBasicMaterial map={texture} toneMapped={false} />
-  );
+  return <meshBasicMaterial map={texture} toneMapped={false} />;
 }
 
 export default function TexturePlane() {

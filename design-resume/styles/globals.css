@@ -3,12 +3,16 @@ html,
 body {
   overflow-x: hidden;
   height: 100%;
+  margin: 0;
   font-family: "Open Sans", sans-serif;
 }
 
 a {
-  color: inherit;
+  color: white;
   text-decoration: none;
+}
+p {
+  color: white;
 }
 
 .primary-header {
@@ -122,15 +126,6 @@ a {
   justify-content: space-between;
 }
 
-.github-icon {
-  border-radius: 50%;
-  background-color: white;
-}
-.linkedin-icon {
-  border-radius: 50%;
-  background-color: white;
-}
-
 @media (max-width: 35em) {
   .navbar {
     position: fixed;
@@ -208,6 +203,7 @@ a {
   z-index: -1;
 }
 .social_pic {
+  width: auto;
   margin-bottom: 30px;
 }
 .main-page-content {

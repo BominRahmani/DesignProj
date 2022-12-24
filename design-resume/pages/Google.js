@@ -3,7 +3,6 @@ import Gallery from "../components/Gallery";
 
 export default function Google() {
   const images = [
-    // Front<mesh position={[1.75, 0.85, 0.25]} rotation={[0, -Math.PI / 2.5, 0]} scale={0.16}>
     {
       position: [2, 0, -0.55],
       rotation: [0, -Math.PI / 3.4, 0],
@@ -17,7 +16,7 @@ export default function Google() {
     {
       position: [-1.75, 0, 0.3],
       rotation: [0, Math.PI / 5, 0],
-      url: "google/4imp.webp",
+      url: "google/4.webp",
     },
     {
       position: [-2.1, 0, 1.9],

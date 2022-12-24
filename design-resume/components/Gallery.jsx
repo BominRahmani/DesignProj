@@ -1,8 +1,7 @@
 import * as THREE from "three";
-import { useRef, useEffect, useState, Suspense } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { useRef, Suspense } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { Bounds, useBounds } from "./api/Bounds";
-import getUuid from 'uuid-by-string'
 
 import {
   MeshReflectorMaterial,
@@ -24,10 +23,10 @@ export default function Gallery({ images }) {
       <group
         onClick={(e) => {
           e.stopPropagation();
-          if(childrenLength == 1){
-            e.button === 0 && api.to({ position: [0, 0, 3], target: [0, 0, 0] });
-          }
-          else{
+          if (childrenLength == 1) {
+            e.button === 0 &&
+              api.to({ position: [0, 0, 5], target: [0, 0, 0] });
+          } else {
             e.delta <= 2 && api.refresh(e.object).fit();
           }
         }}
@@ -35,7 +34,7 @@ export default function Gallery({ images }) {
           e.button === 0 && api.to({ position: [0, 0, 5], target: [0, 0, 0] });
         }}
       >
-      {children}
+        {children}
       </group>
     );
   }
@@ -57,11 +56,11 @@ export default function Gallery({ images }) {
       />
       <group position={[0, -0.5, 0]}>
         <Bounds observe margin={1.3} damping={4}>
-        <SelectToZoom childrenLength={images.length}>
+          <SelectToZoom childrenLength={images.length}>
             <Suspense fallback={"/obj_mock.png"}>
               <Frames images={images} />
             </Suspense>
-            </SelectToZoom>
+          </SelectToZoom>
         </Bounds>
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
           <planeGeometry args={[50, 50]} />
@@ -96,6 +95,25 @@ function Frames({ images }) {
 function Frame({ url, ...props }) {
   const image = useRef();
   const frame = useRef();
+  let singleVideoXOffset = 0;
+  let singleVideoYOffset = 0;
+  let singleVideoZOffset = 0;
+  switch (url) {
+    case "/socialMedia/soc.mp4":
+      singleVideoXOffset = 2;
+      singleVideoYOffset = 1;
+      singleVideoZOffset = 2;
+      break;
+    case "objectDetection/detectionExample.mp4":
+      singleVideoXOffset = 3;
+      singleVideoYOffset = 1;
+      singleVideoZOffset = 2;
+      break;
+    default:
+      singleVideoXOffset = 1;
+      singleVideoYOffset = 1.79;
+      singleVideoZOffset = 0;
+  }
   const updateImage = () => {
     image.current.material.zoom = 1;
     image.current.scale.x = THREE.MathUtils.lerp(
@@ -115,13 +133,13 @@ function Frame({ url, ...props }) {
       updateImage();
     }
   });
-  
+
   return (
     <group {...props}>
       <mesh
         url={url}
-        scale={[1, 1.79, 0.02]}
-        position={[1, GOLDENRATIO / 2, 0]}
+        scale={[singleVideoXOffset, singleVideoYOffset, 0.02]}
+        position={[1, GOLDENRATIO / 2, singleVideoZOffset]}
       >
         <boxGeometry />
         <meshStandardMaterial
@@ -152,7 +170,7 @@ function Frame({ url, ...props }) {
             position={[0, 0, 0.7]}
             scale={[1, 1.79, 0.05]}
             url={url}
-            alt=''
+            alt=""
           />
         )}
       </mesh>
