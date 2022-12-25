@@ -2,6 +2,8 @@ import React, { Suspense } from "react";
 import { useVideoTexture } from "@react-three/drei";
 function VideoMaterial({ url }) {
   const texture = useVideoTexture(url);
+  texture.source.data.playsInline = true;
+  texture.source.data.muted = true;
   return <meshBasicMaterial map={texture} toneMapped={false} />;
 }
 
