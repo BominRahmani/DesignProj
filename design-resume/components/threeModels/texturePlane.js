@@ -4,6 +4,7 @@ function VideoMaterial({ url }) {
   const texture = useVideoTexture(url);
   texture.source.data.playsInline = true;
   texture.source.data.muted = true;
+  texture.source.data.autoplay = true;
   return <meshBasicMaterial map={texture} toneMapped={false} />;
 }
 
